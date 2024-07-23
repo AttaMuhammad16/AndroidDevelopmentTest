@@ -1,12 +1,12 @@
 package com.atta.androiddevelopmenttest.models
 
 data class Article(
-    val author: String,
-    val content: String,
-    val description: String,
-    val publishedAt: String,
     val source: Source,
+    val author: String?,
     val title: String,
+    val description: String?,
     val url: String,
-    val urlToImage: String
+    val urlToImage: String?,
+    val publishedAt: String,
+    val content: String?
 )
