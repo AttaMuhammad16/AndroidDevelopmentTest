@@ -14,6 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private var mainRepository: MainRepository):ViewModel() {
+
     private var _articles= MutableStateFlow(listOf<Article>())
     val articles:StateFlow<List<Article>> = _articles
 
@@ -31,7 +32,5 @@ class MainViewModel @Inject constructor(private var mainRepository: MainReposito
             }
         }
     }
-
-
 
 }
