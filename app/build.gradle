@@ -84,6 +84,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Converter for JSON
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-
+    // coil for image load
+    implementation("io.coil-kt:coil-compose:2.2.2") {
+        exclude group: 'androidx.appcompat', module: 'appcompat-resources'
+    }
 
 }

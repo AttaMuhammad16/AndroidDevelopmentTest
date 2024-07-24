@@ -21,7 +21,7 @@ class MainViewModel @Inject constructor(private var mainRepository: MainReposito
     private val _isError = MutableStateFlow("")
     val isError=_isError
 
-    fun fetchArticles(query :String="tesla",from:String="2024-06-23",sortedBy:String="publishedAt",apiKey:String= API_KEY){
+    fun fetchArticles(query :String="tesla",from:String="2024-07-22",sortedBy:String="publishedAt",apiKey:String= API_KEY){
         viewModelScope.launch {
             val fetchedArticles=mainRepository.fetchArticles(query, from, sortedBy, apiKey)
             fetchedArticles.whenSuccess {
