@@ -153,6 +153,7 @@ fun SearchBar(
                         style = TextStyle(color = Color.Gray, fontSize = 18.sp)
                     )
                 }
+                innerTextField()
             }
         }
     )
