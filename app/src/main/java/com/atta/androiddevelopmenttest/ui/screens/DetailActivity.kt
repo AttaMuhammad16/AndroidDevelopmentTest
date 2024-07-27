@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
+import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import com.atta.androiddevelopmenttest.R
 import com.atta.androiddevelopmenttest.models.Article
@@ -48,10 +49,13 @@ class DetailActivity : ComponentActivity() {
         val bundleArticle=intent.getParcelableExtra<Article>("article")
         setContent {
             AndroidDevelopmentTestTheme {
+
                 LaunchedEffect(Unit) {
                     window.statusBarColor= ContextCompat.getColor(this@DetailActivity, R.color.red)
                 }
+
                 Scaffold(topBar = {
+
                     TopAppBar(title = { Text(text = "Detailed", style = TextStyle(color = Color.White, fontSize = 17.sp), modifier = Modifier.padding(start = 5.dp)) }, colors = TopAppBarColors(containerColor = Color.Red, titleContentColor = Color.White, actionIconContentColor = Color.White, navigationIconContentColor = Color.White, scrolledContainerColor = Color.White), navigationIcon = { Icon(
                         imageVector = Icons.Default.ArrowBack,
                         contentDescription = "",
@@ -59,15 +63,23 @@ class DetailActivity : ComponentActivity() {
                             finish()
                         }
                     )})
+
                 }, modifier = Modifier.fillMaxSize(), containerColor = Color.White) { innerPaddin->
                     Card(modifier = Modifier
                         .fillMaxWidth()
-                        .padding(PaddingValues(top = innerPaddin.calculateTopPadding()+10.dp, start = 10.dp, end = 10.dp)),
+                        .padding(
+                            PaddingValues(
+                                top = innerPaddin.calculateTopPadding() + 10.dp,
+                                start = 10.dp,
+                                end = 10.dp
+                            )
+                        ),
                         colors = CardDefaults.cardColors(containerColor = Color.White),
                         elevation = CardDefaults.cardElevation(10.dp),
                         onClick = {
                         }
                     ) {
+
                         Text(
                             text = bundleArticle?.title?:"Not found",
                             style = TextStyle(fontSize = 18.sp, color = Color.Red, fontWeight = FontWeight.Bold),
@@ -75,6 +87,7 @@ class DetailActivity : ComponentActivity() {
                                 .fillMaxWidth()
                                 .padding(5.dp)
                         )
+
                         Text(
                             text = "Author: ${bundleArticle?.author}",
                             style = TextStyle(fontSize = 15.sp, color = Color.Black),
@@ -82,13 +95,14 @@ class DetailActivity : ComponentActivity() {
                                 .fillMaxWidth()
                                 .padding(5.dp)
                         )
+
                         Image(
                             painter = rememberAsyncImagePainter(bundleArticle?.urlToImage),
                             contentDescription = null,
                             modifier = Modifier
                                 .padding(5.dp)
                                 .fillMaxWidth()
-                                .height(300.dp)
+                                .height(300.dp),
                         )
 
                         Text(

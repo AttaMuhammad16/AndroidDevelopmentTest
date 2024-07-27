@@ -5,7 +5,6 @@ import android.widget.Toast
 
 sealed class MyResult<out T : Any> {
 
-
     data class Success<out T : Any>(val data: T) : MyResult<T>()
     data class Error(val msg: String) : MyResult<Nothing>()
 
@@ -34,7 +33,6 @@ sealed class MyResult<out T : Any> {
             is Success<*> ->{Toast.makeText(context, data.toString(), duration).show()}
             is Error -> {Toast.makeText(context, msg, duration).show()}
         }
-
     }
 
 
