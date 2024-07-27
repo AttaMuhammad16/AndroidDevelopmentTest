@@ -21,7 +21,7 @@ object Module {
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(): Retrofit{
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(OkHttpClient.Builder().build())

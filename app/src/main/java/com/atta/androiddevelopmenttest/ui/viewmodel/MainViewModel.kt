@@ -5,7 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.atta.androiddevelopmenttest.data.repository.MainRepository
 import com.atta.androiddevelopmenttest.models.Article
 import com.atta.androiddevelopmenttest.utils.Constants.API_KEY
+import com.atta.androiddevelopmenttest.utils.MyResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -21,6 +23,7 @@ class MainViewModel @Inject constructor(private var mainRepository: MainReposito
     private val _isError = MutableStateFlow("")
     val isError=_isError
 
+
     fun fetchArticles(query :String="tesla",from:String="2024-07-22",sortedBy:String="publishedAt",apiKey:String= API_KEY){
         viewModelScope.launch {
             val fetchedArticles=mainRepository.fetchArticles(query, from, sortedBy, apiKey)
@@ -32,5 +35,6 @@ class MainViewModel @Inject constructor(private var mainRepository: MainReposito
             }
         }
     }
+
 
 }
