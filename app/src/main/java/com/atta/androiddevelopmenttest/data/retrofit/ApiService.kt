@@ -7,8 +7,6 @@ import retrofit2.http.Query
 
 //https://newsapi.org/v2/everything?q=tesla&from=2024-06-23&sortBy=publishedAt&apiKey=3c20e69e602943ec84c13c0fab501e12
 
-
-
 // it will make a complete url for server request
 interface ApiService {
     @GET("v2/everything")

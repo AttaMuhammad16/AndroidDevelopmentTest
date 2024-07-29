@@ -32,6 +32,7 @@ import com.atta.androiddevelopmenttest.ui.screens.SearchActivity
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AllArticlesScreen(list:List<Article>,context:Context) {
+
     Scaffold(modifier = Modifier.fillMaxSize(), containerColor = Color.White,
         topBar = {
             TopAppBar(title = { Text(text = "News Articles") }, colors = topAppBarColors(

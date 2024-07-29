@@ -31,8 +31,4 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
            }
         }
     }
-
-
-
-
 }

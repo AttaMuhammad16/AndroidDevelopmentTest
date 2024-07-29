@@ -42,12 +42,10 @@ object Module {
         return MainRepositoryImpl(apiService)
     }
 
-
     @Provides
     @Singleton
     fun provideViewModel(mainRepository: MainRepository):MainViewModel{
         return MainViewModel(mainRepository)
     }
-
 
 }
